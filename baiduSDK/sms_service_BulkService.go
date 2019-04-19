@@ -418,7 +418,7 @@ func (a *BulkService) GetAllObjectsId() (string, error) {
 		fmt.Println(f)
 	}
 	if aogid.Header.Desc != "success" {
-		return "", errors.New("BulkService GetAllObjectsId Header Desc failed")
+		return "", errors.New("BulkService GetAllObjectsId AuthHeader Desc failed")
 	}
 	if len(aogid.Body.AllObjectsFileIdGetResponse) == 0 {
 		return "", errors.New("BulkService GetAllObjectsId AllObjectsFileIdGetResponse Is null")
@@ -442,7 +442,7 @@ func (a *BulkService) GetFileStatusById(buikId string) (bool, error) {
 	}
 	// fmt.Println(fsg)
 	if fsg.Header.Desc != "success" {
-		return false, errors.New("BulkService GetFileStatusById  Header Desc Failed")
+		return false, errors.New("BulkService GetFileStatusById  AuthHeader Desc Failed")
 	}
 	if len(fsg.Body.FileStateIsGeneratedGetResponse) == 0 {
 		return false, errors.New("BulkService GetFileStatusById  FileStateIsGeneratedGetResponse Is null")
@@ -467,7 +467,7 @@ func (a *BulkService) GetFilePathById(buikId string) (*FilePathType, error) {
 	}
 	// fmt.Println(string(body))
 	if rfur.Header.Desc != "success" {
-		return nil, errors.New("BulkService GetFilePathById  Header Desc Failed")
+		return nil, errors.New("BulkService GetFilePathById  AuthHeader Desc Failed")
 	}
 	if len(rfur.Body.FilePathsGetResponse) == 0 {
 		return nil, errors.New("BulkService GetFilePathById  FilePathsGetResponse Is null")

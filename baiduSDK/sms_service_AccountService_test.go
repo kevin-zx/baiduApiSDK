@@ -96,7 +96,7 @@ func TestGetAccountInfo(t *testing.T) {
 // 		fmt.Println("json Unmarshal err:", err)
 // 	}
 // 	//获取返回数据状态
-// 	if ok, message := air.Header.GetResponseStatus(); !ok {
+// 	if ok, message := air.AuthHeader.GetResponseStatus(); !ok {
 // 		fmt.Println("failures Message:", message)
 // 		return
 // 	}

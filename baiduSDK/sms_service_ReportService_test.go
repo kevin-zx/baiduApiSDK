@@ -53,7 +53,7 @@ func TestGetRealTimeData(t *testing.T) {
 	// }
 
 	// //获取返回数据状态
-	// if ok, message := car.Header.GetResponseStatus(); !ok {
+	// if ok, message := car.AuthHeader.GetResponseStatus(); !ok {
 	// 	fmt.Println("failures Message:", message)
 	// 	return
 	// }
@@ -112,7 +112,7 @@ func TestGetRealTimePairData(t *testing.T) {
 	// }
 
 	// //获取返回数据状态
-	// if ok, message := car.Header.GetResponseStatus(); !ok {
+	// if ok, message := car.AuthHeader.GetResponseStatus(); !ok {
 	// 	fmt.Println("failures Message:", message)
 	// 	return
 	// }

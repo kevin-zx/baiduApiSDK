@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"crypto/tls"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -48,6 +49,8 @@ func (c *CommonService) do(method string, request interface{}) (result []byte, e
 	datas := NewReQuestData(c.AuthHeader, request)
 
 	b, err := json.Marshal(datas)
+	fmt.Println(string(b))
+	//b = []byte(`{"body": {"words": [{"bid": 1.0, "word": "\u62db\u8058\u5e73\u53f0", "matchType": 1}, {"bid": 1.0, "word": "\u56db\u5ddd\u62db\u8058", "matchType": 1}]}, "header":{"username":"baidu-酷讯2732150-7","password":"Hotel^Kuxun789","target":"","token":"d0a3c5f9ea56ab0e4e73db39f9c8bc36","action":"API-SDK","accesstoken":"","account_type":""}}`)
 	if err != nil {
 		return nil, err
 	}

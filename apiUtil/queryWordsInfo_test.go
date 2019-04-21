@@ -17,7 +17,7 @@ var krAuthHeader = &baiduSDK.AuthHeader{
 
 func TestQueryTasks_Query(t *testing.T) {
 	qs := NewQueryService(krAuthHeader)
-	kis, err := qs.Query([]string{"测试"})
+	kis, err := qs.Query([]string{"斜塘二手房"})
 	if err != nil {
 		panic(err)
 	}

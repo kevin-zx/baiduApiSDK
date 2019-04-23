@@ -46,8 +46,8 @@ func NewQueryService(authHeader *baiduSDK.AuthHeader) *QueryService {
 }
 
 func (qs *QueryService) Query(words []string) (sis *[]WordInfo, err error) {
-	// 这里其实超过500会出错，但是这边先限制在100，试用几个版本后更改
-	if len(words) > 100 {
+	// 这里其实超过500会出错，但是这边先限制在200，试用几个版本后更改
+	if len(words) > 200 {
 		return nil, errors.New("keywords len too long, default limit:100")
 	}
 	s := baiduSDK.NewKRService()

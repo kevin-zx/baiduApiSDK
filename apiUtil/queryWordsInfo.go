@@ -58,6 +58,7 @@ func (qs *QueryService) Query(words []string) (sis *[]WordInfo, err error) {
 		}
 		ws = append(ws, w)
 	}
+	words = ws
 	s := baiduSDK.NewKRService()
 	s.AuthHeader = qs.AuthHeader
 	qt := QueryTasks{}

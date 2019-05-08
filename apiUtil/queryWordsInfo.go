@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/kevin-zx/baiduApiSDK/baiduSDK"
+	"strings"
 )
 
 type SearchInfo struct {
@@ -49,6 +50,13 @@ func (qs *QueryService) Query(words []string) (sis *[]WordInfo, err error) {
 	// 这里其实超过500会出错，但是这边先限制在200，试用几个版本后更改
 	if len(words) > 200 {
 		return nil, errors.New("keywords len too long, default limit:100")
+	}
+	ws := []string{}
+	for _, w := range words {
+		if len(strings.Split(w, "")) > 30 {
+			continue
+		}
+		ws = append(ws, w)
 	}
 	s := baiduSDK.NewKRService()
 	s.AuthHeader = qs.AuthHeader

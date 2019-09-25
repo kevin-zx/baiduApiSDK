@@ -2,13 +2,12 @@ package apiUtil
 
 import (
 	"errors"
-	"fmt"
 	"github.com/tidwall/gjson"
 )
 
 //如果response 说明是成功的，则返回data ，如果不成功抛出异常
 func responseIsSuccess(response []byte) (data string, err error) {
-	fmt.Println(string(response))
+	//fmt.Println(string(response))
 	jo := gjson.ParseBytes(response)
 	successFlag := jo.Get("header.desc").String()
 	if successFlag != "success" {

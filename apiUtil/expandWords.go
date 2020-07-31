@@ -34,7 +34,7 @@ type QueryResult struct {
 }
 
 // 0 是全部 1pc 2移动
-func (qes *QueryExpandService) ExpandWordsByQuery(word string, device int) (qrs *[]QueryResult, err error) {
+func (qes *QueryExpandService) ExpandWordsByQuery(word string, device int) (qrs []*QueryResult, err error) {
 	krs := baiduSDK.NewKRService()
 	krs.AuthHeader = qes.AuthHeader
 	r, err := krs.GetKRByQuery(makeKeywordQueryExpandTask(word, device))
@@ -45,8 +45,8 @@ func (qes *QueryExpandService) ExpandWordsByQuery(word string, device int) (qrs 
 	if err != nil {
 		return
 	}
-	qrs = &[]QueryResult{}
-	err = json.Unmarshal([]byte(d), qrs)
+	qrs = []*QueryResult{}
+	err = json.Unmarshal([]byte(d), &qrs)
 	return
 }
 

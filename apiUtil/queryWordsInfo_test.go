@@ -7,7 +7,6 @@ import (
 )
 
 var krAuthHeader = &baiduSDK.AuthHeader{
-
 	//Username: "",
 	//Password: "",
 	//Token:    "",
@@ -21,7 +20,7 @@ func TestQueryTasks_Query(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-	for _, ki := range *kis {
+	for _, ki := range kis {
 		fmt.Printf("%v\n", ki)
 	}
 }

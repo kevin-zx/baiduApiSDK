@@ -46,7 +46,7 @@ func NewQueryService(authHeader *baiduSDK.AuthHeader) *QueryService {
 	return &QueryService{AuthHeader: authHeader}
 }
 
-func (qs *QueryService) Query(words []string) (sis *[]WordInfo, err error) {
+func (qs *QueryService) Query(words []string) (sis []*WordInfo, err error) {
 	// 这里其实超过500会出错，但是这边先限制在200，试用几个版本后更改
 	if len(words) > 200 {
 		return nil, errors.New("keywords len too long, default limit:100")
@@ -71,7 +71,7 @@ func (qs *QueryService) Query(words []string) (sis *[]WordInfo, err error) {
 	if err != nil {
 		return
 	}
-	sis = &[]WordInfo{}
+	sis = []*WordInfo{}
 	err = json.Unmarshal([]byte(data), &sis)
 	return
 }
